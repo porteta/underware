@@ -1,3 +1,3 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
-console.log("you're wearing underware");
+console.log("You're wearing underware");
