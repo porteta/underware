@@ -10,6 +10,9 @@
   "bin": {
     "underware": "bin/underware.js"
   },
+  "bin": {
+    "underware": "bin/underware.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/porteta/underware.git"
