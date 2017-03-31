@@ -1,5 +1,4 @@
 import React from 'react'
-// import './ModalLayout.css'
 
 export const ModalLayout = ({ children }) => (
   <div className='container text-center'>

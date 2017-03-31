@@ -1,11 +1,9 @@
 import React from 'react'
-// import styles from './styles.css'
+import { styled } from 'styletron-react'
 
-export const ErrorMessage = (props) => (
-  <div>
-    {props.children}
-  </div>
-)
+export const ErrorMessage = styled('div', () => ({
+  color: 'red'
+}))
 
 ErrorMessage.propTypes = {
   children: React.PropTypes.node

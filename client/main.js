@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, createMemoryHistory, browserHistory } from 'react-router'
 import createStore from 'store/createStore'
+import Styletron from 'styletron-client'
+import { StyletronProvider } from 'styletron-react'
 // import AppContainer from './components/App'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { polyfill as promisePolyfill } from 'es6-promise'
 import 'isomorphic-fetch'
+
+const styleElements = document.getElementsByClassName('_styletron_hydrate_')
 
 promisePolyfill()
 
@@ -26,12 +30,15 @@ const MOUNT_NODE = document.getElementById('root')
 let render = () => {
   const routes = require('routes/index').default(store)
   const history = browserHistory || createMemoryHistory()
+  const styletron = new Styletron(styleElements)
   ReactDOM.render(
-    <MuiThemeProvider>
-      <Provider store={store}>
-        <Router history={history} children={routes} />
-      </Provider>
-    </MuiThemeProvider>,
+    <StyletronProvider styletron={styletron}>
+      <MuiThemeProvider>
+        <Provider store={store}>
+          <Router history={history} children={routes} />
+        </Provider>
+      </MuiThemeProvider>
+    </StyletronProvider>,
     MOUNT_NODE
   )
 }

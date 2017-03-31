@@ -10,6 +10,8 @@ import { Provider } from 'react-redux'
 import { match, RouterContext, createMemoryHistory } from 'react-router'
 import { renderToString } from 'react-dom/server'
 import createStore from 'store/createStore'
+import Styletron from 'styletron-server'
+import { StyletronProvider } from 'styletron-react'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Routes from 'routes'
@@ -29,7 +31,8 @@ app.use(compress())
 
 // Proxy API requests
 app.use('/api', proxy({
-  target: 'http://your-api-here',
+  // target: 'http://your-api-here',
+  target: 'http://integration4-2.koverse.com:8080/',
   changeOrigin: true
 }))
 
@@ -91,15 +94,18 @@ if (project.env === 'development') {
         .catch(err => res.end(err.message))
 
       function renderView () {
+        const styletron = new Styletron()
         // Render the component to a string
         const componentHTML = renderToString(
-          <MuiThemeProvider>
-            <Provider store={store}>
-              <RouterContext {...renderProps} />
-            </Provider>
-          </MuiThemeProvider>
+          <StyletronProvider styletron={styletron}>
+            <MuiThemeProvider>
+              <Provider store={store}>
+                <RouterContext {...renderProps} />
+              </Provider>
+            </MuiThemeProvider>
+          </StyletronProvider>
         )
-
+        const stylesForHead = styletron.getStylesheetsHtml()
         // Grab the initial state from our Redux store
         const preloadedState = store.getState()
         // Send the rendered page back to the client
@@ -109,6 +115,7 @@ if (project.env === 'development') {
         <html>
           <head>
             <title>Redux Universal Example</title>
+            ${stylesForHead}
           </head>
           <body>
             <div id="root">${componentHTML}</div>

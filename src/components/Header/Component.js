@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import FlatButton from 'material-ui/FlatButton'
 import { IndexLink } from 'react-router'
-// import styles from './styles.css'
 
 class Header extends Component {
   static propTypes = {
