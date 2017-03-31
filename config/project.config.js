@@ -15,10 +15,11 @@ const config = {
   // Project Structure
   // ----------------------------------
   path_base  : path.resolve(__dirname, '..'),
-  dir_client : 'src',
+  dir_src : 'src',
   dir_dist   : 'dist',
   dir_public : 'public',
   dir_server : 'server',
+  dir_client : 'client',
   dir_test   : 'tests',
 
   // ----------------------------------
@@ -112,6 +113,7 @@ function base () {
 
 config.paths = {
   base   : base,
+  src : base.bind(null, config.dir_src),
   client : base.bind(null, config.dir_client),
   public : base.bind(null, config.dir_public),
   dist   : base.bind(null, config.dir_dist),

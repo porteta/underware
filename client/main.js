@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, createMemoryHistory, browserHistory } from 'react-router'
-import createStore from './store/createStore'
+import createStore from 'store/createStore'
 // import AppContainer from './components/App'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -24,7 +24,7 @@ const store = createStore(initialState)
 const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
-  const routes = require('./routes/index').default(store)
+  const routes = require('routes/index').default(store)
   const history = browserHistory || createMemoryHistory()
   ReactDOM.render(
     <MuiThemeProvider>
@@ -62,7 +62,7 @@ if (__DEV__) {
     }
 
     // Setup hot module replacement
-    module.hot.accept('./routes/index', () =>
+    module.hot.accept('routes/index', () =>
       setImmediate(() => {
         ReactDOM.unmountComponentAtNode(MOUNT_NODE)
         render()

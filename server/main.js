@@ -29,7 +29,7 @@ app.use(compress())
 
 // Proxy API requests
 app.use('/api', proxy({
-  target: 'http://integration4-2.koverse.com:8080',
+  target: 'http://your-api-here',
   changeOrigin: true
 }))
 
@@ -43,7 +43,7 @@ if (project.env === 'development') {
 
   app.use(require('webpack-dev-middleware')(compiler, {
     publicPath  : webpackConfig.output.publicPath,
-    contentBase : project.paths.client(),
+    contentBase : project.paths.src(),
     hot         : true,
     quiet       : project.compiler_quiet,
     noInfo      : project.compiler_quiet,

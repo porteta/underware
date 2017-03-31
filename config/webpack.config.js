@@ -1,7 +1,6 @@
 const argv = require('yargs').argv
 const webpack = require('webpack')
 const cssnano = require('cssnano')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
 const debug = require('debug')('app:config:webpack')
@@ -16,7 +15,7 @@ const webpackConfig = {
   target  : 'web',
   devtool : project.compiler_devtool,
   resolve : {
-    root       : project.paths.client(),
+    root       : project.paths.src(),
     extensions : ['', '.js', '.jsx', '.json']
   },
   module : {}
@@ -54,17 +53,7 @@ webpackConfig.externals['react/addons'] = true
 // Plugins
 // ------------------------------------
 webpackConfig.plugins = [
-  new webpack.DefinePlugin(project.globals),
-  new HtmlWebpackPlugin({
-    template : project.paths.client('index.html'),
-    hash     : false,
-    favicon  : project.paths.public('favicon.ico'),
-    filename : 'index.html',
-    inject   : 'body',
-    minify   : {
-      collapseWhitespace : true
-    }
-  })
+  new webpack.DefinePlugin(project.globals)
 ]
 
 // Ensure that the compiler exits on errors during testing so that

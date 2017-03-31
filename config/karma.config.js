@@ -62,7 +62,7 @@ if (project.globals.__COVERAGE__) {
   karmaConfig.reporters.push('coverage')
   karmaConfig.webpack.module.preLoaders = [{
     test    : /\.(js|jsx)$/,
-    include : new RegExp(project.dir_client),
+    include : new RegExp(project.dir_src),
     exclude : /node_modules/,
     loader  : 'babel',
     query   : Object.assign({}, project.compiler_babel, {
