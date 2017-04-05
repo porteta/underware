@@ -22,9 +22,3 @@ export default function configReducer (state = initialState, action) {
 
   return handler ? handler(state, action) : state
 }
-
-// ------------------------------------
-// Selectors
-// ------------------------------------
-
-export const selectConfig = state => state.config
