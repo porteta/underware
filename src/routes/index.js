@@ -6,22 +6,23 @@ import LoginRoute from './Login'
 // import SignupRoute from './Signup'
 import DashboardRoute from './Secure/Dashboard'
 import NotFound from './NotFound'
+import { selectUser } from 'selectors/session'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
 export default (store) => {
   const requireAuth = (nextState, replace, cb) => {
-    const { session } = store.getState()
-    if (!session.user) {
+    const state = store.getState()
+    if (!selectUser(state)) {
       replace('login')
     }
     cb()
   }
 
   const requirePublic = (nextState, replace, cb) => {
-    const { session } = store.getState()
-    if (session.user) {
+    const state = store.getState()
+    if (selectUser(state)) {
       replace('/')
     }
     cb()

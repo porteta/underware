@@ -11,6 +11,9 @@ function handleJSONResponse (res) {
       resolve(res.json())
     } else {
       res.json().then(err => {
+        if (process.env !== 'production') {
+          console.error(err)
+        }
         reject(err)
       })
     }
