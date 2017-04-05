@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { selectUser } from 'store/session'
+import { selectUser } from 'selectors/session'
 import App from './Component'
 
 const mapDispatchToProps = {}

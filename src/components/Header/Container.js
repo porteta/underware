@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import Component from './Component'
-import { selectUser, logUserOut } from 'store/session'
+import { selectUser } from 'selectors/session'
+import { logUserOut } from 'actions/session'
 
 const mapDispatchToProps = {
   logUserOut

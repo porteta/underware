@@ -1,6 +1,6 @@
 import LoginForm from './Component'
 import { mount } from 'tests/utils'
-import { logUserIn } from 'store/session'
+import { logUserIn } from 'actions/session'
 
 describe('(Component) LoginForm', () => {
   let _component, _props

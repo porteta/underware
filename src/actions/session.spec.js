@@ -6,10 +6,11 @@ import { user } from 'tests/mock-data'
 import {
   CURRENT_USER_REQUEST,
   LOG_USER_IN,
-  LOG_USER_OUT,
+  LOG_USER_OUT } from 'constants/session'
+import {
   fetchUser,
   logUserIn,
-  logUserOut } from './session'
+  logUserOut } from 'actions/session'
 
 describe('(Store) Config', () => {
   const middlewares = [ thunk ]

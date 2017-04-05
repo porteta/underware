@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { logUserIn, selectUser } from 'store/session'
+import { logUserIn } from 'actions/session'
+import { selectUser } from 'selectors/session'
 
 import LoginForm from './Component'
 

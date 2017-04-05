@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { createMemoryHistory, browserHistory } from 'react-router'
 import { fetchConfig } from 'actions/config'
-import { fetchUser } from 'store/session'
+import { fetchUser } from 'actions/session'
 
 const history = browserHistory || createMemoryHistory()
 
