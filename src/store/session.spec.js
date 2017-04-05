@@ -1,7 +1,7 @@
 import fetchMock from 'fetch-mock'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { apiUrl } from 'config'
+import { API_URL } from 'constants/config'
 import { user } from 'tests/mock-data'
 import {
   CURRENT_USER_REQUEST,
@@ -21,7 +21,7 @@ describe('(Store) Config', () => {
     })
 
     it('should create LOG_USER_IN action when logging in', () => {
-      fetchMock.post(`${apiUrl}/login`, user)
+      fetchMock.post(`${API_URL}/login`, user)
 
       const expectedActions = [
         { type: LOG_USER_IN, payload: user }
@@ -35,7 +35,7 @@ describe('(Store) Config', () => {
     })
 
     it('should create LOG_USER_IN when fetching user has been done', () => {
-      fetchMock.get(`${apiUrl}/users/current`, user)
+      fetchMock.get(`${API_URL}/users/current`, user)
 
       const expectedActions = [
         { type: CURRENT_USER_REQUEST },
@@ -50,7 +50,7 @@ describe('(Store) Config', () => {
     })
 
     it('should create LOG_USER_OUT action when logging out', () => {
-      fetchMock.get(`${apiUrl}/logout`, { success: true })
+      fetchMock.get(`${API_URL}/logout`, { success: true })
 
       const expectedActions = [
         { type: LOG_USER_OUT }

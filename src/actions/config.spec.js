@@ -1,10 +1,10 @@
 import fetchMock from 'fetch-mock'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { apiUrl } from 'config'
-import { CONFIG_REQUEST, CONFIG_SUCCESS, fetchConfig } from './config'
+import { API_URL, CONFIG_REQUEST, CONFIG_SUCCESS } from 'constants/config'
+import { fetchConfig } from 'actions/config'
 
-describe('(Store) Config', () => {
+describe('(Actions) Config', () => {
   const middlewares = [ thunk ]
   const createMockStore = configureMockStore(middlewares)
 
@@ -14,7 +14,7 @@ describe('(Store) Config', () => {
     })
 
     it('should create CONFIG_SUCCESS when fetching config has been done', () => {
-      fetchMock.get(`${apiUrl}/config`, { configKey: 'configValue' })
+      fetchMock.get(`${API_URL}/config`, { configKey: 'configValue' })
 
       const expectedActions = [
         { type: CONFIG_REQUEST },

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import configReducer from './config'
+import configReducer from 'reducers/config'
 import locationReducer from './location'
 import sessionReducer from './session'
 import { reducer as formReducer } from 'redux-form'

@@ -1,4 +1,4 @@
-import { apiUrl } from 'config'
+import { API_URL } from 'constants/config'
 // import axios from 'axios'
 // import _ from 'lodash'
 import { SubmissionError } from 'redux-form'
@@ -22,7 +22,7 @@ export const CURRENT_USER_REQUEST = 'CURRENT_USER_REQUEST'
 
 export const logUserIn = (credentials) => {
   return (dispatch) => {
-    return fetch(`${apiUrl}/login`, fetchUtils.config({
+    return fetch(`${API_URL}/login`, fetchUtils.config({
       method: 'POST',
       body: JSON.stringify(credentials)
     })).then(fetchUtils.handleJSONResponse)
@@ -39,7 +39,7 @@ export const logUserIn = (credentials) => {
 
 export const logUserOut = () => {
   return (dispatch) => {
-    return fetch(`${apiUrl}/logout`, fetchUtils.config())
+    return fetch(`${API_URL}/logout`, fetchUtils.config())
       .then(fetchUtils.handleJSONResponse)
       .then(() => {
         dispatch({
@@ -54,7 +54,7 @@ export const fetchUser = () => {
     dispatch({
       type    : CURRENT_USER_REQUEST
     })
-    return fetch(`${apiUrl}/users/current`, fetchUtils.config())
+    return fetch(`${API_URL}/users/current`, fetchUtils.config())
       .then(fetchUtils.handleJSONResponse)
       .then(user => {
         dispatch({
