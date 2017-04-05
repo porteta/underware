@@ -19,6 +19,7 @@ class LoginForm extends Component {
         <h2>Login</h2>
         <div>
           <Field
+            id='login-email'
             name='email'
             type='email'
             component={TextField}
@@ -27,6 +28,7 @@ class LoginForm extends Component {
         </div>
         <div>
           <Field
+            id='login-password'
             name='password'
             type='password'
             component={TextField}
