@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux'
 import configReducer from 'reducers/config'
-import locationReducer from './location'
 import sessionReducer from 'reducers/session'
 import { reducer as formReducer } from 'redux-form'
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     config: configReducer,
-    location: locationReducer,
     session: sessionReducer,
     form: formReducer,
     ...asyncReducers
