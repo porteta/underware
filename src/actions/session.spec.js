@@ -1,7 +1,7 @@
 import fetchMock from 'fetch-mock'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { API_URL } from 'constants/config'
+import { API_URL } from 'constants'
 import { user } from 'tests/mock-data'
 import {
   CURRENT_USER_REQUEST,

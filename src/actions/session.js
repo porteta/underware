@@ -1,6 +1,6 @@
 import { SubmissionError } from 'redux-form'
 import { fetchUtils } from 'utils'
-import { API_URL } from 'constants/config'
+import { API_URL } from 'constants'
 import { LOG_USER_IN, LOG_USER_OUT, CURRENT_USER_REQUEST } from 'constants/session'
 
 /*  This is a thunk, meaning it is a function that immediately

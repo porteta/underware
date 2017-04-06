@@ -1,5 +1,6 @@
 import { fetchUtils } from 'utils'
-import { API_URL, CONFIG_REQUEST, CONFIG_SUCCESS, CONFIG_FAILURE } from 'constants/config'
+import { API_URL } from 'constants'
+import { CONFIG_REQUEST, CONFIG_SUCCESS, CONFIG_FAILURE } from 'constants/config'
 
 export const fetchConfig = () => {
   return (dispatch) => {

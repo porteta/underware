@@ -31,8 +31,7 @@ app.use(compress())
 
 // Proxy API requests
 app.use('/api', proxy({
-  // target: 'http://your-api-here',
-  target: 'http://integration4-2.koverse.com:8080/',
+  target: 'http://your-api-here',
   changeOrigin: true
 }))
 

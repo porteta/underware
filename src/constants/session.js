@@ -1,3 +1,9 @@
 export const LOG_USER_IN = 'LOG_USER_IN'
 export const LOG_USER_OUT = 'LOG_USER_OUT'
 export const CURRENT_USER_REQUEST = 'CURRENT_USER_REQUEST'
+
+export default {
+  LOG_USER_IN,
+  LOG_USER_OUT,
+  CURRENT_USER_REQUEST
+}

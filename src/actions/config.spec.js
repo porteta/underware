@@ -1,7 +1,8 @@
 import fetchMock from 'fetch-mock'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { API_URL, CONFIG_REQUEST, CONFIG_SUCCESS } from 'constants/config'
+import { API_URL } from 'constants'
+import { CONFIG_REQUEST, CONFIG_SUCCESS } from 'constants/config'
 import { fetchConfig } from 'actions/config'
 
 describe('(Actions) Config', () => {
