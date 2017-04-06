@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from 'components/Header'
 import ModalLayout from 'layouts/ModalLayout/ModalLayout'
-import { mount } from 'tests/utils'
+import { shallow } from 'enzyme'
 
 describe('(Layout) Modal', function () {
   let _component
@@ -14,7 +14,7 @@ describe('(Layout) Modal', function () {
       children : _child
     }
 
-    _component = mount(ModalLayout, _props)
+    _component = shallow(<ModalLayout {..._props} />)
   })
 
   it('Should not render <Header />.', function () {

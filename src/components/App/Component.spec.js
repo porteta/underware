@@ -1,7 +1,8 @@
+import React from 'react'
 import createStore from 'store/createStore'
 import routes from 'routes'
 import App from './Component'
-import { mount } from 'tests/utils'
+import { shallow } from 'enzyme'
 
 describe('(Component) App', () => {
   let _component, _props
@@ -16,11 +17,15 @@ describe('(Component) App', () => {
   })
 
   beforeEach(() => {
-    _component = mount(App, _props)
+    _component = shallow(
+      <App {..._props}>
+        <h1>Hi</h1>
+      </App>
+    )
   })
 
-  xit('Contains a Router', () => {
-    const router = _component.find('Router')
-    expect(router).to.exist
+  it('Renders Children', () => {
+    const child = _component.find('h1')
+    expect(child).to.exist
   })
 })

@@ -1,12 +1,13 @@
+import React from 'react'
 import Dashboard from './Component'
-import { mount } from 'tests/utils'
+import { shallow } from 'enzyme'
 
 describe('(Component) Dashboard', () => {
   let _component, _props
 
   beforeEach(() => {
     _props = {}
-    _component = mount(Dashboard, _props)
+    _component = shallow(<Dashboard {..._props} />)
   })
 
   it('Renders a Title', () => {

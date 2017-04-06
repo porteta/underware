@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
 import { logUserIn } from 'actions/session'
 import { selectUser } from 'selectors/session'
+import { loginForm as validate } from 'validations'
+import { reduxForm } from 'redux-form'
 
 import LoginForm from './Component'
 
@@ -12,4 +14,9 @@ const mapStateToProps = state => ({
   user: selectUser(state)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+const reduxLoginForm = reduxForm({
+  form: 'login',
+  validate
+})(LoginForm)
+
+export default connect(mapStateToProps, mapDispatchToProps)(reduxLoginForm)

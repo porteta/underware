@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { Field } from 'redux-form'
 import { TextField } from 'redux-form-material-ui'
 import RaisedButton from 'material-ui/RaisedButton'
-import { loginForm as validate } from 'validations'
+
 import ErrorMessage from 'components/ErrorMessage'
 
-class LoginForm extends Component {
+export default class LoginForm extends Component {
   static propTypes = {
     handleSubmit: React.PropTypes.func.isRequired,
     error: React.PropTypes.string,
@@ -41,8 +41,3 @@ class LoginForm extends Component {
     )
   }
 }
-
-export default reduxForm({
-  form: 'login',
-  validate
-})(LoginForm)

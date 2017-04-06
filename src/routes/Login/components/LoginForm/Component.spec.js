@@ -1,5 +1,6 @@
+import React from 'react'
 import LoginForm from './Component'
-import { mount } from 'tests/utils'
+import { shallow } from 'enzyme'
 import { logUserIn } from 'actions/session'
 
 describe('(Component) LoginForm', () => {
@@ -10,7 +11,7 @@ describe('(Component) LoginForm', () => {
       user: undefined,
       logUserIn
     }
-    _component = mount(LoginForm, _props)
+    _component = shallow(<LoginForm {..._props} />)
   })
 
   it('Renders a <form />', () => {

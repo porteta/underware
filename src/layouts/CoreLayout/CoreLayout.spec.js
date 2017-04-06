@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from 'components/Header'
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
-import { mount } from 'tests/utils'
+import { shallow } from 'enzyme'
 
 describe('(Layout) Core', function () {
   let _component
@@ -14,7 +14,7 @@ describe('(Layout) Core', function () {
       children : _child
     }
 
-    _component = mount(CoreLayout, _props)
+    _component = shallow(<CoreLayout {..._props} />)
   })
 
   it('Should render <Header />.', function () {
