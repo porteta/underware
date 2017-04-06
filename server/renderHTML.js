@@ -57,7 +57,7 @@ export default function renderHTML (req, res) {
       <!doctype html>
       <html>
         <head>
-          <title>Redux Universal Example</title>
+          <title>Underware</title>
           ${stylesForHead}
         </head>
         <body>

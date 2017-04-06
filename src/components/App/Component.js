@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { createMemoryHistory, browserHistory } from 'react-router'
+import { Helmet } from 'react-helmet'
 import { fetchConfig } from 'actions/config'
 import { fetchUser } from 'actions/session'
 
@@ -24,7 +25,14 @@ class App extends PureComponent {
   ];
 
   render () {
-    return (<div style={{ height: '100%' }}>{this.props.children}</div>)
+    return (
+      <div style={{ height: '100%' }}>
+        <Helmet>
+          <title>Underware</title>
+        </Helmet>
+        {this.props.children}
+      </div>
+    )
   }
 }
 
